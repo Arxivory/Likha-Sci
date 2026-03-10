@@ -1,0 +1,29 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider  = "postgresql"
+  url       = env("DATABASE_URL")
+  directUrl = env("DIRECT_URL")
+}
+        
+enum Domain {
+    Engineering
+    MedTech
+    DataScience
+}
+
+model Asset {
+    id String @id @default(uuid())
+    name String
+    description String?
+    domain Domain
+    price Decimal @default(0.0)
+
+    metadata Json
+
+    ownerId String
+    createdAt DateTime @default(now())
+    updatedAt DateTime @updatedAt
+}
