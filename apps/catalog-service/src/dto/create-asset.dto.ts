@@ -20,7 +20,7 @@ export class CreateAssetDto {
     domain: Domain;
 
     @IsNumber()
-    price: Number;
+    price: number;
 
     @IsObject()
     metadata: Record<string, any>;
