@@ -8,6 +8,8 @@ async function bootstrap() {
     new FastifyAdapter()
   );
 
+  app.enableCors();
+
   await app.listen(4002, '0.0.0.0');
   console.log('Catalog Service is running on: http://localhost:4002');
 }
